@@ -14,6 +14,7 @@ class UpdateRestaurantsTable extends Migration
     public function up()
     {
         Schema::table('restaurants', function (Blueprint $table) {
+            $table->text('photo')->after('slug')->nullable;
             $table->unsignedBigInteger('user_id')->after('id')->nullable();
 
             $table->foreign('user_id')
@@ -33,6 +34,7 @@ class UpdateRestaurantsTable extends Migration
         Schema::table('restaurants', function (Blueprint $table){
             $table->dropForeign('restaurants_user_id_foreign');
             $table->dropColumn('user_id');
+            $table->dropColumn('photo');
         });
     }
 }

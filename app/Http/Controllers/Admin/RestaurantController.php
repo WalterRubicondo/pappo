@@ -6,12 +6,13 @@ use App\Restaurant;
 use App\User;
 use App\Category;
 
+use Illuminate\Support\Facades\Storage;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -60,11 +61,11 @@ class RestaurantController extends Controller
           $data = $request->all();
 
           $data['user_id'] = Auth::id();
+          $photo = Storage::put('uploads', $data['photo']);
+        //   $photo = null;
+        //   if (array_key_exists('photo', $data)) {
 
-          $photo = null;
-          if (array_key_exists('photo', $data)) {
-            $photo = Storage::put('uploads', $data['photo']);
-          }
+        //   }
 
           $restaurant = new Restaurant();
           $restaurant->fill($data);
@@ -135,7 +136,7 @@ class RestaurantController extends Controller
           $restaurant->update($data);
 
           if (array_key_exists('category_ids', $data)) {
-            $restaurant->categories()->sync($data['category_ids']); 
+            $restaurant->categories()->sync($data['category_ids']);
           } else {
             $restaurant->categories()->detach();
           }
