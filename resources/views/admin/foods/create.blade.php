@@ -37,7 +37,7 @@
               @enderror
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="available">Disponibilità</label>
               <select class="form-control @error('available') is-invalid @enderror" id="available" name="available">
                 <option value="1" {{ old('available') == 1 ? 'selected' : '' }}>Disponibile</option>
@@ -46,7 +46,7 @@
               @error('available')
                 <small class="text-danger">{{ $message }}</small>
               @enderror
-            </div>
+            </div> -->
 
             <div class="form-group">
               <label for="photo">Foto</label>
