@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
-use App\Food;
 use App\Category;
+use App\Food;
 use Illuminate\Http\Request;
+
+
 
 class RestaurantController extends Controller
 {
@@ -14,7 +16,7 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $restaurant = Restaurant::with('categories')->get();
 
@@ -22,6 +24,27 @@ class RestaurantController extends Controller
           'data' => $restaurant,
           'success' => true
         ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
