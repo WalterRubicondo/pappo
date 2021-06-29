@@ -1,3 +1,5 @@
+const { forEach } = require("lodash");
+
 Vue.config.devtools = true;
 var app = new Vue({
     el: "#root",
@@ -6,8 +8,20 @@ var app = new Vue({
         restaurants: [],
         categoryIndex: '',
         foods: [],
-
+        quantity: 1,
         carrello:[],
+        array:[],
+
+    },
+    computed: {
+        carrelloTotale() {
+            let somma=0;
+            for(var key in this.carrello) {
+                somma +=(this.carrello[key].price * this.carrello[key].quantity);
+            }
+            console.log(somma);
+            return somma.toFixed(2)
+        },
     },
     mounted: function (){
         /* chiamata categorie ristoranti */
@@ -21,12 +35,8 @@ var app = new Vue({
             /* console.log(this.restaurants); */
         }); 
     },
-    created(){
-        console.log(JSON.parse(localStorage.getItem('session')));
-        var actualCart = JSON.parse(localStorage.getItem('session'));
-        this.carrello = actualCart;
-        localStorage.clear();
-    }, 
+    
+
     methods: {
         //al click vediamo tutti i ristoranti della categoria selezionata
         restaurantByCategory: function restaurantByCategory(category) {
@@ -46,18 +56,43 @@ var app = new Vue({
             }); 
         },
         add_cart: function (food) {
-            var this_2 = this;
-            var cart_food = food;
-            console.log(food);
 
-           
-            // if (!this.carrello.includes(this.cart_food)) {
-                this.carrello.push(cart_food).quantity; 
+                let foods = food;
+                foods.quantity = this.quantity;
+               
+                this.carrello.push(foods);
+                localStorage.carrello = JSON.stringify(this.carrello);
+
                 console.log(this.carrello);
-;
-            // } 
-            this.carrello[this.carrello.indexOf(cart_food)].quantity += 1;
-            console.log(this.carrello[this.carrello.cart_food].quantity);
-          },
+                this.carrello[this.carrello.indexOf(foods)].quantity += 1;
+
+                
+                this.carrello = JSON.parse(localStorage.carrello);
+                // this.carrello.forEach(element => {
+                //     this.array.push(element);
+                // });
+                // console.log(this.array);
+       },
+       aggiungi: function(){
+        this.carrello.forEach(item => {
+            item.quantity ++;
+            console.log(item);
+        });
+        console.log(this.carrello);
+
+        // this.carrello[this.carrello.indexOf(quantita)].quantity += 1;
+
+        },
+        meno: function(){
+            this.carrello.forEach(item => {
+                item.quantity --;
+                console.log(item);
+            });
+            console.log(this.carrello);
+    
+            // this.carrello[this.carrello.indexOf(quantita)].quantity += 1;
+    
+            }
+     
     },
 });

@@ -66,6 +66,18 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="carrello" v-if="carrello">
+					<div v-for="order in carrello">
+					<p>@{{order.name}}</p>
+					<p>@{{order.price}}</p>
+					<p id="pippolino">@{{order.quantity}}</p>
+					<button @click="aggiungi()">+</button>
+					<button @click="meno()">-</button>
+					
+					</div>
+					<p v-if="carrello" >  Totale: @{{carrelloTotale}} €</p>
+				</div>
 			</div>
 		</div>
 	</div>
