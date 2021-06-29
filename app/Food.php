@@ -19,11 +19,11 @@ class Food extends Model
     protected $table = 'foods';
 
     public function restaurants(){
-        return $this->hasMany('App\Restaurant', 'id', 'user_id');
+        // return $this->hasMany('App\Restaurant', 'id', 'user_id');
+        return $this->belongsTo('App\Restaurant');
     }
 
     public function orders(){
         return $this->belongsToMany('App\Order');
     }
-
 }

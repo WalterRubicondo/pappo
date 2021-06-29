@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Str;
+
+
 
 class FoodController extends Controller
 {
@@ -76,6 +79,12 @@ class FoodController extends Controller
 
           $food->save();
 
+        //   $restaurant = Restaurant::all();
+        //   $restaurant = Food::with('restaurants')->where('id', '=', $food->id)->select('*')->first();
+        //   echo($food->id);
+        //   dd($restaurant);
+        //   return redirect()->route('admin.restaurants.show',['restaurant' => $restaurant->restaurants->slug]);
+
           return redirect()->route('admin.restaurants.index')->with('success', 'Il piatto "' . $food->name . '" è stato creato correttamente');
 
     }
@@ -122,6 +131,9 @@ class FoodController extends Controller
           ]);
 
           $data = $request->all();
+
+          $data['slug'] = $this->generateSlug($data['name'], $food->name != $data['name'], $food->slug);
+
 
           $photo = null;
           if (array_key_exists('photo', $data)) {

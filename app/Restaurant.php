@@ -16,17 +16,17 @@ class Restaurant extends Model
         'telephone_number',
         'photo',
       ];
-      
+
       public function user(){
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
       }
 
       public function categories(){
         return $this->belongsToMany('App\Category', 'category_restaurant');
-      } 
+      }
 
       public function foods(){
-        return $this->belongsTo('App\Food');
+        return $this->hasMany('App\Food');
       }
 
       public function orders(){
