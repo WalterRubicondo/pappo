@@ -5,6 +5,9 @@ var app = new Vue({
         categories: [],
         restaurants: [],
         categoryIndex: '',
+        foods: [],
+
+        carrello:[],
     },
     mounted: function (){
         /* chiamata categorie ristoranti */
@@ -18,6 +21,12 @@ var app = new Vue({
             /* console.log(this.restaurants); */
         }); 
     },
+    created(){
+        console.log(JSON.parse(localStorage.getItem('session')));
+        var actualCart = JSON.parse(localStorage.getItem('session'));
+        this.carrello = actualCart;
+        localStorage.clear();
+    }, 
     methods: {
         //al click vediamo tutti i ristoranti della categoria selezionata
         restaurantByCategory: function restaurantByCategory(category) {
@@ -36,5 +45,19 @@ var app = new Vue({
                 /* console.log(this.restaurants); */
             }); 
         },
+        add_cart: function (food) {
+            var this_2 = this;
+            var cart_food = food;
+            console.log(food);
+
+           
+            // if (!this.carrello.includes(this.cart_food)) {
+                this.carrello.push(cart_food).quantity; 
+                console.log(this.carrello);
+;
+            // } 
+            this.carrello[this.carrello.indexOf(cart_food)].quantity += 1;
+            console.log(this.carrello[this.carrello.cart_food].quantity);
+          },
     },
 });

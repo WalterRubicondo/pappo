@@ -1,6 +1,7 @@
 @extends('layouts.guest_show')
 
 @section('content')
+<div id="root">
 <section id="guest-show">
 	<div class="container-show">
 		<div class="content flex">
@@ -28,7 +29,7 @@
 							</div>
 							<div class="card-cmd flex">
 								<p style="margin-bottom: 0">{{$food->price}} €</p>
-								<p class="uppercase cart" style="margin-bottom: 0; cursor: pointer">Aggiungi <i class="fas fa-shopping-cart"></i></p>
+								<p class="uppercase cart" style="margin-bottom: 0; cursor: pointer" @click="add_cart({{$food}})">Aggiungi <i class="fas fa-shopping-cart"></i></p>
 							</div>
 						</div>
 						@else
@@ -44,6 +45,8 @@
 							</div>
 							<div class="card-cmd flex">
 								<p style="margin-bottom: 0">{{$food->price}} €</p>
+							
+								
 							</div>
 						</div>
 						@endif
@@ -70,4 +73,6 @@
 		<img src="../img/restaurant.png" alt="">
 	</div>	
 </section>
+</div>
+
 @endsection
