@@ -8,6 +8,8 @@ var app = new Vue({
         quantity: 1,
         carrello:[],
         array:[],
+        soldatino: false,
+        
     },
     computed: {
         carrelloTotale() {
@@ -15,11 +17,14 @@ var app = new Vue({
             for(var key in this.carrello) {
                 somma +=(this.carrello[key].price * this.carrello[key].quantity);
             }
-            console.log(somma);
+            // console.log(somma);
             return somma.toFixed(2)
         },
     },
     mounted: function (){
+        if(localStorage.carrello){
+            this.carrello = JSON.parse(localStorage.carrello);
+        }
         /* chiamata categorie ristoranti */
         axios.get('http://localhost:8000/api/categories').then((response)=> {
             this.categories = response.data.data;
@@ -30,6 +35,8 @@ var app = new Vue({
             this.restaurants = response.data.data;
             /* console.log(this.restaurants); */
         }); 
+        
+        // console.log(this.carrello);
     },
     methods: {
         //al click vediamo tutti i ristoranti della categoria selezionata
@@ -50,30 +57,64 @@ var app = new Vue({
             }); 
         },
         addCart: function(food) {
-            let foods = food;
-            foods.quantity = this.quantity;
-           
-            this.carrello.push(foods);
-            localStorage.carrello = JSON.stringify(this.carrello);
+            let foods = food; 
+            if(this.carrello.length == 0 ){
+                foods.quantity = this.quantity;
+                
+                this.carrello.push(foods);
+                localStorage.carrello = JSON.stringify(this.carrello);
 
-            console.log(this.carrello);
+            }else{
+                let flag = false;
+                this.carrello.forEach(element => {
+                    if(element.id == food.id){
+                        element.quantity++;
+                         flag = true;
+                         localStorage.carrello = JSON.stringify(this.carrello);
+
+                    }
+                });
+                
+                if(!flag){
+                    this.carrello.push(foods);
+                }
+            }
+            localStorage.carrello = JSON.stringify(this.carrello);
         },
-        aggiungi: function(){
+        aggiungi: function(id1){
+            
             this.carrello.forEach(item => {
-                item.quantity ++;
-                console.log(item);
-            });
-            console.log(this.carrello);
+                if(item.id === id1){
+                    item.quantity ++;
+                    // console.log(item);
+                    localStorage.carrello = JSON.stringify(this.carrello);
+                }             
+            });        
         },   
-        meno: function(){
-            this.carrello.forEach(item => {
-                item.quantity --;
-                console.log(item);
+        meno: function(id1){
+            this.carrello.forEach((item, index) => {
+                if(item.id === id1){
+                    if (item.quantity > 1) {
+                        item.quantity -- ;
+                        localStorage.carrello = JSON.stringify(this.carrello); 
+                    }else{
+                        console.log("ciao sono dentro if CAZZO");
+                            this.carrello.splice(index, 1);
+                            localStorage.removeItem('carrello') ;
+                            this.soldatino = true;
+                    }
+                    console.log(item.quantity);
+                }                        
             });
-            console.log(this.carrello);
-    
-            // this.carrello[this.carrello.indexOf(quantita)].quantity += 1;
-    
+            if (!this.soldatino) {
+                localStorage.carrello = JSON.stringify(this.carrello);
+            }
+
+            if(this.carrello.length === 0){
+                window.localStorage.clear();
+                console.log("bernini <3");
+            } 
+            console.log(this.carrello);  
         }
     },
 });

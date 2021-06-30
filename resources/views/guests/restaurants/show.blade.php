@@ -66,15 +66,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="cart flex" style="width: 480px" v-if="carrello!=''">
+		<div class="cart flex" style="width: 480px" v-if="carrello.length > 0">
 			<div class="cart-name"><span>Piatto</span></div>
 			<div class="cart-quant"><span>Q.ta</span></div>
 			<div class="cart-sub"><span>Prezzo</span></div>
-			<div v-for="order in carrello" class="flex" style="flex-wrap: wrap; width: 100%; background-color: pink">
+			<div v-for="(order,i) in carrello" v-if="order.quantity" class="flex" style="flex-wrap: wrap; width: 100%; background-color: pink">
 				<div class="cart-name"><span>@{{order.name}}</span></div>
 				<div class="cart-quant"><span>@{{order.quantity}}</span>
-					<span @click="meno()">-</span>
-					<span @click="aggiungi()">+</span>
+					<span @click="meno(order.id,i)">-</span>
+					<span @click="aggiungi(order.id)">+</span>
 				</div>
 				<div class="cart-sub"><span>@{{order.price}} €</span></div>
 			</div>

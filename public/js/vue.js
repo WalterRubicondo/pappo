@@ -99,12 +99,33 @@ var app = new Vue({
   data: {
     categories: [],
     restaurants: [],
-    categoryIndex: ''
+    categoryIndex: '',
+    quantity: 1,
+    carrello: [],
+    array: [],
+    soldatino: false
+  },
+  computed: {
+    carrelloTotale: function carrelloTotale() {
+      var somma = 0;
+
+      for (var key in this.carrello) {
+        somma += this.carrello[key].price * this.carrello[key].quantity;
+      } // console.log(somma);
+
+
+      return somma.toFixed(2);
+    }
   },
   mounted: function mounted() {
     var _this = this;
 
+    if (localStorage.carrello) {
+      this.carrello = JSON.parse(localStorage.carrello);
+    }
     /* chiamata categorie ristoranti */
+
+
     axios.get('http://localhost:8000/api/categories').then(function (response) {
       _this.categories = response.data.data;
       /*console.log(this.categories) */
@@ -114,7 +135,7 @@ var app = new Vue({
     axios.get('http://localhost:8000/api/restaurants').then(function (response) {
       _this.restaurants = response.data.data;
       /* console.log(this.restaurants); */
-    });
+    }); // console.log(this.carrello);
   },
   methods: {
     //al click vediamo tutti i ristoranti della categoria selezionata
@@ -136,6 +157,75 @@ var app = new Vue({
         _this3.restaurants = response.data.data;
         /* console.log(this.restaurants); */
       });
+    },
+    addCart: function addCart(food) {
+      var _this4 = this;
+
+      var foods = food;
+
+      if (this.carrello.length == 0) {
+        foods.quantity = this.quantity;
+        this.carrello.push(foods);
+        localStorage.carrello = JSON.stringify(this.carrello);
+      } else {
+        var flag = false;
+        this.carrello.forEach(function (element) {
+          if (element.id == food.id) {
+            element.quantity++;
+            flag = true;
+            localStorage.carrello = JSON.stringify(_this4.carrello);
+          }
+        });
+
+        if (!flag) {
+          this.carrello.push(foods);
+        }
+      }
+
+      localStorage.carrello = JSON.stringify(this.carrello);
+    },
+    aggiungi: function aggiungi(id1) {
+      var _this5 = this;
+
+      this.carrello.forEach(function (item) {
+        if (item.id === id1) {
+          item.quantity++; // console.log(item);
+
+          localStorage.carrello = JSON.stringify(_this5.carrello);
+        }
+      });
+    },
+    meno: function meno(id1) {
+      var _this6 = this;
+
+      this.carrello.forEach(function (item, index) {
+        if (item.id === id1) {
+          if (item.quantity > 1) {
+            item.quantity--;
+            localStorage.carrello = JSON.stringify(_this6.carrello);
+          } else {
+            console.log("ciao sono dentro if CAZZO");
+
+            _this6.carrello.splice(index, 1);
+
+            localStorage.removeItem('carrello');
+            _this6.soldatino = true;
+          }
+
+          console.log(item.quantity);
+        }
+      });
+
+      if (!this.soldatino) {
+        localStorage.carrello = JSON.stringify(this.carrello);
+      }
+
+      if (this.carrello.length === 0) {
+        window.localStorage.clear();
+        console.log("bernini <3");
+      }
+
+      console.log(this.carrello);
     }
   }
 });
@@ -149,7 +239,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/fortunato/Desktop/GENERAL FOLDER/BOOLEAN/Repository/pappo/resources/js/vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! /Users/giuseppeplacida/Documents/git_hub/pappo/resources/js/vue.js */"./resources/js/vue.js");
 
 
 /***/ })
