@@ -67,16 +67,25 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="cart flex" v-if="carrello">
-			<div class="cart-name"><span>Piatto</span></div>
+		<div class="cart-name"><span>Piatto</span></div>
 			<div class="cart-quant"><span>Q.ta</span></div>
 			<div class="cart-sub"><span>Prezzo</span></div>
-			<div v-for>
+			<div v-for="order in carrello">
+				<div class="cart-name"><span>@{{order.name}}</span></div>
+				<div class="cart-quant"><span>@{{order.quantity}}</span>
+					<span @click="meno()">-</span>
+					<span @click="aggiungi()">+</span>
+				</div>
+				<div class="cart-sub"><span>@{{order.price}} €</span></div>
+			</div>					
+					
+			<div class="cart-total" v-if="carrello" ><span>Totale: @{{carrelloTotale}} €</span></div>
 
-			
-			</div>
-			<div class="cart-total"><span>Totale</span></div>
+
 			<div class="cart-checkout"><a href="" class="btn">CHECKOUT</a></div>
+		</div>
 		</div>
 	</section>
 </div>
