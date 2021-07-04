@@ -1,6 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
+<script src="https://js.braintreegateway.com/web/dropin/1.10.0/js/dropin.js"></script>
 <section id="add-food" class="flex">
 	<div class="container food-card">
 		<div class="row">
@@ -72,27 +73,29 @@
 						</form>
 
 						<script>
-					
+							var button = document.querySelector('#submit-button');
+							
+							braintree.dropin.create({
+							authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+							selector: '#dropin-container'
+							}, function (err, instance) {
+							if (err) {
+								// An error in the create call is likely due to
+								// incorrect configuration values or network issues
+								return;
+							}
 
-						$( document ).ready(function() {
-						var button = document.querySelector('#submit-button');
-						braintree.dropin.create({
-						authorization: "{{ Braintree\ClientToken::generate() }}",
-						container: '#dropin-container'
-						}, function (createErr, instance) {
-						button.addEventListener('click', function () {
-							instance.requestPaymentMethod(function (err, payload) {
-							$.get('{{ route('payment.make',['amount' => $restaurant->id]) }}', {payload}, function (response) {
-								if (response.success) {
-								alert('Payment successfull!');
-								} else {
-								alert('Payment failed');
+							button.addEventListener('click', function () {
+								instance.requestPaymentMethod(function (err, payload) {
+								if (err) {
+									// An appropriate error will be shown in the UI
+									return;
 								}
-							}, 'json');
-							});
-						});
-						});
-						});
+
+								// Submit payload.nonce to your server
+								});
+							})
+							});		
 						</script>
 
 					<button class="btn btn-dark" type="submit">Conferma</button>
