@@ -36,7 +36,7 @@
                         </div>
                         <p style="color: teal; cursor: pointer" class="text-center">@{{category.name}}</p>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="text-center">
             <a  style="color: teal; cursor: pointer" class="vis-all" @click="allRestaurants()">Tutti i ristoranti</a>
@@ -68,8 +68,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>   
-                </div>    
+                    </div>
+                </div>
             </div>
         </div>
         <!-- immagini angoli sezione -->
