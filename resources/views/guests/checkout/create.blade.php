@@ -2,6 +2,7 @@
 
 @section('content')
 <script src="https://js.braintreegateway.com/web/dropin/1.10.0/js/dropin.js"></script>
+<div id="app">
 <section id="add-food" class="flex">
 	<div class="container food-card">
 		<div class="row">
@@ -11,7 +12,7 @@
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-md-8">
-				<form id="payment-form" action="{{route('orders.store')}}" method="post" enctype="multipart/form-data">
+				<form action="{{route('orders.store')}}" method="post" enctype="multipart/form-data">
 					@csrf
 					@method('POST')
 					<input type="hidden" name="restaurant_id" value="{{ $restaurant['id'] }}">
@@ -56,53 +57,53 @@
                             @enderror
                         </div>
 
+						
+
 						<div class="form-group">
 							<label for="total">Totale</label>
-							<input class="form-control @error('total') is-invalid @enderror" id="total" type="number" step="0.01" name="total" value="{{ old('total') }}">
-							@error('total')
-								<small class="text-danger">{{ $message }}</small>
+							<p id=“total” name="total" >Totale: @{{totale}} €</p>							@error('total')
+								
 							@enderror
 						</div>
 
-						<form>
-						<div id="payment-form"></div>
 						<div class="wrapper">
-							<div id="dropin-container"></div>
-						</div>
-						<button id="submit-button" type="submit">Submit Order</button>
-						</form>
-
-						<script>
-							var button = document.querySelector('#submit-button');
-							
-							braintree.dropin.create({
-							authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
-							selector: '#dropin-container'
-							}, function (err, instance) {
-							if (err) {
-								// An error in the create call is likely due to
-								// incorrect configuration values or network issues
-								return;
-							}
-
-							button.addEventListener('click', function () {
-								instance.requestPaymentMethod(function (err, payload) {
-								if (err) {
-									// An appropriate error will be shown in the UI
-									return;
-								}
-
-								// Submit payload.nonce to your server
-								});
-							})
-							});		
-						</script>
-
-					<button class="btn btn-dark" type="submit">Conferma</button>
+                            <div id="dropin-container"></div>
+                        </div>
+					<button class="btn btn-dark" type="submit" @click="clear">Conferma</button>
 					<a class="btn back" href="{{route('index')}}">Annulla</a>
+
+					  <!-- BRAINTREE -->
+					  <script>
+                            var button = document.querySelector('#submit-button');
+                            
+                            braintree.dropin.create({
+                            authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+                            selector: '#dropin-container'
+                            }, function (err, instance) {
+                            if (err) {
+                                // An error in the create call is likely due to
+                                // incorrect configuration values or network issues
+                                return;
+                            }
+
+                        button.addEventListener('click', function () {
+                                instance.requestPaymentMethod(function (err, payload) {
+                                if (err) {
+                                    // An appropriate error will be shown in the UI
+                                    return;
+                                }
+
+                                // Submit payload.nonce to your server
+                                });
+                            }  )
+                            });     
+                        </script>
 				</form>
+				
 			</div>
 		</div>
 	</div>
 </section>
+
+</div>
 @endsection

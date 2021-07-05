@@ -103,7 +103,8 @@ var app = new Vue({
     quantity: 1,
     carrello: [],
     array: [],
-    soldatino: false
+    soldatino: false,
+    totale: 0
   },
   computed: {
     carrelloTotale: function carrelloTotale() {
@@ -113,6 +114,10 @@ var app = new Vue({
         somma += this.carrello[key].price * this.carrello[key].quantity;
       }
 
+      localStorage.totprice = JSON.stringify(somma);
+      this.totale = somma;
+      console.log(somma);
+      console.log(this.totale);
       return somma.toFixed(2);
     }
   },

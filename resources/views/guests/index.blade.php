@@ -65,6 +65,7 @@
                                         <img src="./img/device-mobile.svg" alt="mobilephone">
                                         <p style="margin-bottom: 0px">@{{restaurant.telephone_number}}</p>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
