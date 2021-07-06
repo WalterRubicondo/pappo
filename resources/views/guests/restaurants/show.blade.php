@@ -48,7 +48,7 @@
 							</div>
 							<div class="card-cmd flex">
 								<p style="margin-bottom: 0">{{$food->price}} €</p>
-								<p class="uppercase carrellino" style="margin-bottom: 0; cursor: no-drop; background-color: lightcoral">Non Disponibile <i class="fas fa-ban"></i></p>							
+								<p class="uppercase carrellino" style="margin-bottom: 0; cursor: no-drop; background-color: lightcoral">Non Disponibile <i class="fas fa-ban"></i></p>
 							</div>
 						</div>
 						@endif
@@ -89,8 +89,8 @@
             <div class="cart-total flex" v-if="carrello != '' " ><span>Totale: @{{carrelloTotale}} €</span></div>
             <div class="cart-checkout flex">
 			<div class="add-food">
-			
-			<button @click="salvataggio"> Checkout </button>
+
+            <a @click="salvataggio" class="uppercase btn"> Checkout </a>
 						{{-- <span class="btn add-menu" onclick="event.preventDefault();
 						document.getElementById('getRestaurant').submit();">Checkout</span>
 						<form id="getRestaurant" action="{{route('getrestaurant', ['id' => $restaurant->id])}}" method="post">
@@ -99,10 +99,10 @@
 							<input type="hidden" name="id" value="{{ $restaurant->id }}">
 						</form> --}}
 					</div>
-                <p @click="svuota()" href="" class="btn">X</p>
+                <p @click="svuota()" href="" class="btn uppercase">svuota</p>
             </div>
 
-			
+
         </div>
 
 	</section>
@@ -172,20 +172,20 @@
 								<small class="text-danger">{{ $message }}</small>
 							@enderror
 							<!-- <p v-model="total"> </p> -->
-							
+
 
 						</div>
 
-						
+
 						<div id="payment-form"></div>
 						<!-- <div class="wrapper">
 							<div id="dropin-container"></div>
 						</div> -->
 						<button id="submit-button" class="button button--small button--green btn btn-dark" @click="paga()">Purchase</button>
 						<!-- <button id="submit-button" type="submit">Submit Order</button> -->
-						
 
-					
+
+
 
 					<!-- <button class="btn btn-dark" type="submit">Conferma</button> -->
 					<a class="btn back" href="{{route('index')}}">Annulla</a>
@@ -197,7 +197,7 @@
 </section>
 
 </div>
-		
+
 <style>
 	.checkout{
 		padding-top: 100px;
