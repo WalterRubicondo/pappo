@@ -55,7 +55,7 @@ class RestaurantController extends Controller
             'description' => 'required|string',
             'address' => 'required|string|max:100',
             'telephone_number' => 'required|regex:/^([0-9\-\+\(\)]*)$/|min:10',
-            'photo' => 'required|image|max:100|nullable',
+            'photo' => 'required|image|max:120|nullable',
             'category_ids.*' => 'exists:categories,id',
           ]);
 

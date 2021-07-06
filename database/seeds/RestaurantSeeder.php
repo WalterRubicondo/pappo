@@ -27,7 +27,7 @@ class RestaurantSeeder extends Seeder
                 'photo' => './img/restaurants/pizza-restaurant.jpg'
             ],
             [
-                'user_id' => '2',
+                'user_id' => '1',
                 'name' => 'La Rossa',
                 'description' => 'Sempre attenti alla qualità degli ingredienti utilizzando solo prodotti di prima qualità quali Parmigiano Reggiano, Prosciutto Curdo di Parma, Salamino Leboni, Pasta De Cecco, ci rende orgogliosi e molto apprezzati dalla nostra affezionata clientela.
                 Dal pranzo alla cena, il nostro Ristorante Pizzeria è anche un luogo ideale per il ritrovo di comitive, di gruppi, per lo svolgimento di feste o per celebrare ricorrenze e festività.
@@ -38,7 +38,7 @@ class RestaurantSeeder extends Seeder
                 'photo' => './img/restaurants/rossa.jpg'
             ],
             [
-                'user_id' => '2',
+                'user_id' => '1',
                 'name' => 'Puerto Mexico',
                 'description' => 'In origine México al 104 nel rione Monti, divenuto poi México all’Aventino per circa un ventennio, oggi il
                 ristorante, a dispetto dell’età e della sua lunga storia, ha ancora voglia di innovarsi e divertire. Ne è nato un
@@ -79,7 +79,7 @@ class RestaurantSeeder extends Seeder
                 'photo' => './img/restaurants/coccinella.jpg'
             ],
             [
-                'user_id' => '2',
+                'user_id' => '1',
                 'name' => 'Waraku',
                 'description' => 'Come i nostri affezionati clienti ben sanno, da Waraku non troverete Sushi o Sashimi, né tanti altri piatti che hanno reso celebre la cucina giapponese nel mondo.No: noi di Waraku abbiamo scelto la via del Ramen!Fino a pochi anni fa, questa importantissima pietanza era decisamente poco conosciuta, almeno in Italia: eppure, si tratta di uno dei prodotti gastronomici più tipici e amati dal pubblico del Sol Levante, e a ben pensarci chi è cresciuto tra gli anni 70 e 80 del XX secolo, ha avuto modo di vedere i personaggi dei cartoni animati di allora nutrirsi di Ramen in molteplici occasioni.',
                 'slug' => 'waraku',
@@ -106,7 +106,7 @@ class RestaurantSeeder extends Seeder
                 'photo' => './img/restaurants/jin.jpg'
             ],
             [
-                'user_id' => '2',
+                'user_id' => '1',
                 'name' => 'Himalaya’s Kashmir',
                 'description' => 'Tra le nostre specialità possiamo mettere in evidenza piatti tipici come il Pollo Tandori e il Pollo al Curry, menù di carne e anche menù per vegetariani. Una vasta scelta di gusti orientati tutti alla cucina indiana ma anche pakistana. Potete raggiungerci in auto, in autobus o con la metropolitana.',
                 'slug' => 'himalaya-s-kashmir',
@@ -153,7 +153,7 @@ class RestaurantSeeder extends Seeder
                 'photo' => './img/restaurants/fed.jpg'
             ],
             [
-                'user_id' => '2',
+                'user_id' => '1',
                 'name' => 'Fonzie',
                 'description' => 'Oltre 20 Burger e Sandwich in Menu, a partire dai grandi classici e oltre: Special egg Burger con uovo all’occhio di bue, Hot Dog di manzo, Burger di ceci e cicoria ripassata, Burger di Soia, Chicken Burger con panatura ai cereali, Pastrami
                  sandwich, Tortilla Crispy, anelli di cipolla fritti, Bagel e tanti altri sfizi fritti. Ogni Burger può essere ordinato anche al piatto, accompagnato da verdure saltate o insalata.',

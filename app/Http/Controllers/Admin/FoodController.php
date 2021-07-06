@@ -54,7 +54,7 @@ class FoodController extends Controller
             'ingredients' => 'required|string',
             'price' => 'required|numeric',
             'available' => 'boolean',
-            'photo' => 'image|max:100|nullable',
+            'photo' => 'image|max:200|nullable',
             'restaurant_id' => 'exists:restaurants,id',
           ]);
 
@@ -95,7 +95,7 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        
+
         return view('admin.foods.edit',compact('food'));
     }
 
