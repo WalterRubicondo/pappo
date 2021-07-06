@@ -2,7 +2,6 @@
 
 @section('content')
 
-<!-- <script src="https://js.braintreegateway.com/web/dropin/1.10.0/js/dropin.js"></script> -->
 
 <div id="root">
 	<section id="guest-show" v-if="scompari">
@@ -178,10 +177,10 @@
 
 						
 						<div id="payment-form"></div>
-						<!-- <div class="wrapper">
+						<div class="wrapper">
 							<div id="dropin-container"></div>
-						</div> -->
-						<button id="submit-button" class="button button--small button--green btn btn-dark" @click="paga()">Purchase</button>
+						</div>
+						<button id="submit-button" type="submit" class="button button--small button--green btn btn-dark" @click="paga()">Purchase</button>
 						<!-- <button id="submit-button" type="submit">Submit Order</button> -->
 						
 
@@ -190,10 +189,25 @@
 					<!-- <button class="btn btn-dark" type="submit">Conferma</button> -->
 					<a class="btn back" href="{{route('index')}}">Annulla</a>
 				</form>
+				<script>
+					var button = document.querySelector('#submit-button');
+					braintree.dropin.create({
+					authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+					selector: '#dropin-container'
+					}, function (err, instance) {
+					button.addEventListener('click', function () {
+						instance.requestPaymentMethod(function (err, payload) {
+						// Submit payload.nonce to your server
+						});
+					})
+					});
+				</script>
+				
 			</div>
 		</div>
 	</div>
 	</div>
+
 </section>
 
 </div>
@@ -203,4 +217,5 @@
 		padding-top: 100px;
 	}
 </style>
+
 @endsection

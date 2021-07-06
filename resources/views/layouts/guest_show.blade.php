@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/pappo.css')}}">
     <title>@yield('page_title')</title>
+    <script src="https://js.braintreegateway.com/web/dropin/1.10.0/js/dropin.js"></script>
+
+
 </head>
+
 <body>
+    
     <header>
         @include('partials.guest.show.header')
     </header>
@@ -25,6 +30,7 @@
         @include('partials.guest.show.footer')
     </footer>
 
+
     <!-- script axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
     <!-- script JQuery -->
@@ -33,5 +39,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="{{asset('js/vue.js')}}"></script>
     <script src="{{asset('js/nav-bar.js')}}""></script>
+    
 </body>
 </html>
