@@ -6,7 +6,8 @@ use App\Food;
 use App\Order;
 use Braintree\Gateway;
 
-use App\Mail\SendNewMail;
+use App\Mail\PAPPOAuth;
+use App\Mail\PAPPOGuest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -64,6 +65,9 @@ class OrderController extends Controller
           $order = new Order();
           $order->fill($data);
 
+          Mail::to('guest@mail.it')->send(new PAPPOGuest());
+          Mail::to('auth@mail.it')->send(new PAPPOAuth());
+
           $order->save();
 
           if (array_key_exists('restaurant_ids', $data)) {
@@ -72,7 +76,6 @@ class OrderController extends Controller
           if (array_key_exists('food_ids', $data)) {
             $order->foods()->attach($data['food_ids']);
           }
-
           return redirect()->route('index');
     }
 
