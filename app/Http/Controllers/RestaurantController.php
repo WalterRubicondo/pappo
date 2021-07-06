@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Restaurant;
 use App\Food;
 use App\Category;
+use App\Restaurant;
+use App\Mail\SendNewMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RestaurantController extends Controller
 {
@@ -40,7 +42,7 @@ class RestaurantController extends Controller
     public function restaurantByCategory($categoryIndex)
     {
       $category = Category::with('restaurants')->where('id', '=', $categoryIndex)->first();
-  
+
       return response()->json([
         'data' => $category->restaurants,
         'success' => true,
