@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use App\Food;
-use Illuminate\Http\Request;
-
+use App\Order;
 use Braintree\Gateway;
+
+use App\Mail\SendNewMail;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\Orders\OrderRequest;
 
 class OrderController extends Controller
@@ -135,7 +137,7 @@ class OrderController extends Controller
             // $amount = Food::find($request->amount);
 
             $result = $gateway->transaction()->sale([
-                
+
                 'amount' => $data['total'],
                 'paymentMethodNonce' => "fake-valid-nonce",
                 'options' => [
