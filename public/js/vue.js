@@ -286,7 +286,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Uolter\Desktop\Progetto\pappo\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\leona\Desktop\ESERCIZI\pappo\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

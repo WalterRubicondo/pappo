@@ -4,7 +4,7 @@
     overflow: hidden;
     #root {
         .restaurants-container {
-            width: 70%;
+            width: 90%;
             margin: 0 auto;
             padding-top: 50px;
             h1 {
@@ -18,13 +18,16 @@
                 .row {
                     width: 50%;
                     .category-card {
+                        cursor: pointer;
+                        border: 1px solid lightgray;
                         background-color: #fff;
                         width: calc(100% / 4 - 20px);
                         margin: 15px 10px;
                         flex-direction: column;
                         align-items: center;
-                        padding: 10px 0;
+                        padding: 20px 0;
                         border-radius: 50%;
+                        transition: border-color 0.4s;
                         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
                         .card-content {
                             border-radius: 50%;
@@ -37,9 +40,12 @@
                                 }
                             }
                         }
-                        .text-center {
+                        &:hover {
+                            border-color: teal;
+                        } 
+                        p.text-center {
                             font-weight: 700;
-                        }
+                        }      
                     }    
                 }
             }
@@ -51,6 +57,11 @@
                 color: teal;
                 font-weight: 700;
                 border-radius: 10px;
+                border: 1px solid lightgray;
+                transition: border-color 0.4s;
+                &:hover {
+                    border-color: teal;
+                }
             }
         }
         .img-up-l {
