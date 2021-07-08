@@ -48,7 +48,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="photo">IMG</label>
+							<label for="photo">Image</label>
 							<input class="form-control-file @error('photo') is-invalid @enderror" id="photo" type='file' name="photo">
 							@error('photo')
 								<small class="text-danger">{{ $message }}</small>
@@ -78,7 +78,7 @@
 		</div>
 	</div>
 	<div class="img-chips">
-		<img src="/img/restaurant.png" alt="vc">
+		<img src="/img/forks.png" alt="vc">
 	</div>
 </section>
 @endsection

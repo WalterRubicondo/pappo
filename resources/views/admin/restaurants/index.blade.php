@@ -6,7 +6,7 @@
 	<div class="rest-index-title text-center">
 		<h1>i tuoi ristoranti</h1>
 	</div>
-		<div class="row">
+		<div class="row-card">
 			@foreach ($restaurants as $restaurant)
 				<div class="card">
 					<div class="card-img">
@@ -33,13 +33,7 @@
 			<div class="btn back">
 				<a class="" href="{{route('admin.index')}}">Indietro</a>
 			</div>
-		</div>	
-	</div>
-	<div class="ramen-r">
-		<img src="../img/ramen.png" alt="plate">
-	</div>
-	<div class="plate-l">
-		<img src="../img/plate.png" alt="plate">
+		</div>
 	</div>
 </section>
 @endsection

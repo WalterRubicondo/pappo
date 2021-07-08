@@ -1,7 +1,7 @@
 section.restaurant-create {
   width: 100vw;
   height: calc(100vh - 100px);
-  background-color: #addec9;
+  background-color: #fcf7ed;
   position: relative;
   overflow: hidden;
   .container {
@@ -86,7 +86,7 @@ section.restaurant-create {
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1500px) {
   section.restaurant-create {
     display: flex;
     justify-content: center;
@@ -122,5 +122,4 @@ section.restaurant-create {
   section.restaurant-create .img-restaurants-two {
   display: none;
   }
-
 }

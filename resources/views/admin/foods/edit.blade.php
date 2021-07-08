@@ -55,7 +55,7 @@
                 <img src="{{asset($food->photo)}}" alt="">
             </div>
             <div class="form-group">
-                <label for="photo">IMG</label>
+                <label for="photo">Image</label>
                 <input class="form-control-file @error('photo') is-invalid @enderror" id="photo" type='file' name="photo">
                 @error('photo')
                     <small class="text-danger">{{ $message }}</small>
@@ -73,9 +73,6 @@
   	</div>
 	<div class="img-restaurants-edit">
 		<img src="/img/plateTwo.png" alt="food">
-	</div>
-	<div class="img-restaurants-edit-two">
-		<img src="/img/forks.png" alt="food">
 	</div>
 </section>
 

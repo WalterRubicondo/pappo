@@ -95,7 +95,7 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        
+
         return view('admin.foods.edit',compact('food'));
     }
 
@@ -139,6 +139,8 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
-        //
+        $food->delete();
+
+        return redirect()->route('admin.restaurants.index')->with('success', 'Il piatto "' . $food->name . '" è stato cancellato correttamente');
     }
 }

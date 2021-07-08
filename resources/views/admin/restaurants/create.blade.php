@@ -9,7 +9,7 @@
 				<form action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
 					@csrf
 					@method('POST')
-					
+
 					<div class="row">
 						<div class="col-md-12">
 						<h1>Nuovo ristorante</h1>
@@ -75,9 +75,6 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	<div class="img-restaurants">
-		<img src="/img/forknife.png" alt="fork and knife">
 	</div>
 	<div class="img-restaurants-two">
 		<img src="/img/hand.png" alt="fork and knife">

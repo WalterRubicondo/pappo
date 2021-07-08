@@ -1,11 +1,12 @@
 #edit-rest {
-    background-color: #d4e2fc;
+    height: calc(100vh - 100px);
+    background-color: #fcf7ed;
     position: relative;
-    flex-direction: column;
     justify-content: center;
     .container {
         padding: 20px 20px;
         .card-edit {
+            margin-top: 50px;
             position: relative;
             z-index: 2;
             background-color: #e9f1ff;
@@ -14,29 +15,32 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
             .row {
                 .col-md-12.uppercase {
-                    margin: 20px 20px;
+                    padding: 25px 80px;
+
                     h1 {
                         font-weight: 700;
                         font-weight: bold;
-
                     }
                 }
             }
             .row {
                 .col-md-8 {
                     .form-group {
-                            #description {
-                                height: 110px;
-                            }
-                            label {
-                                font-size: 18px;
-                                font-weight: 700;
-                                color: teal;
-                            }
-                            .form-control:focus {
-                              border-color: #ef8896;
-                              box-shadow: 0 0 0 0.2rem rgba(234, 85, 105, 0.20);
-                            }
+                        #description {
+                            height: 110px;
+                        }
+                        label {
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: teal;
+                        }
+                        .form-control:focus {
+                          border-color: #ef8896;
+                          box-shadow: 0 0 0 0.2rem rgba(234, 85, 105, 0.20);
+                        }
+                    }
+                    img {
+                        width: 100px;
                     }
                     .btn-back {
                         background-color: #f9a723;
@@ -58,15 +62,13 @@
     }
     .img-chips {
         position: absolute;
-        left: 0px;
-        top: 0px;
+        left: 50px;
+        top: 50px;
         img {
-            width: 500px;
+            width: 300px;
         }
     }
-
 }
-
 
 #category::-webkit-scrollbar {
     width: 8px; /* width of the entire scrollbar */

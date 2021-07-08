@@ -1,18 +1,24 @@
 #restaurants-index {
      background-color: #addec9;
      height: calc(100vh - 100px);
-     position: relative;
-     overflow: hidden;
+     background-image: url('/img/pan.svg');
+     background-repeat: no-repeat;
+     background-size: cover;
     .container {
         .rest-index-title {
-            text-transform: uppercase;
-            padding: 25px 0;
+            padding: 70px 70px;
             h1 {
+                text-transform: uppercase;
                 font-weight: 700;
+                text-align: center;
             }
         }
-        .row {
+        .row-card {
+            border: #f9a723 solid 10px;
+            border-radius: 10px;
+            background-color: #fff;
             flex-wrap: wrap;
+            padding: 30px;
             .card {
                 width: calc(100% / 4 - 30px);
                 border-radius: 10px;
@@ -49,9 +55,9 @@
                         background-color: lightcoral;
                         border-radius: 4px;
                         color: #fff;
-                        font-weight: 700;    
+                        font-weight: 700;
                     }
-                }     
+                }
             }
         }
         .add-rest {
@@ -74,65 +80,39 @@
                 padding: 15px 15px;
                 background-color: #f9a723;
                 font-weight: 800;
-                transition: background-color 0.4s;  
+                transition: background-color 0.4s;
                 a {
                     color: #fff;
                 }
                 &:hover {
                     background-color: #ffc76d;
-                }        
-            }     
+                }
+            }
         }
-    }
-    .ramen-r {
-        position: absolute;
-        right: -188px;
-        bottom: -188px;
-    }
-    .plate-l {
-        position: absolute;
-        left: -188px;
-        top: -188px;
     }
 }
 
 @media all and (max-width: 1024px) {
-    #restaurants-index .container .row .card {
+    #restaurants-index .container .row-card .card {
         position: relative;
         z-index: 2;
-    }
-
-    #restaurants-index .ramen-r {
-        z-index: 1;
-    }
-    
-    #restaurants-index .plate-l {
-        z-index: 1;
     }
 }
 
 @media all and (max-width: 768px) {
-    #restaurants-index .container .row .card {
+    #restaurants-index .container .row-card .card {
         width: calc(100% / 3 - 30px);
     }
 }
 
 @media all and (max-width: 567px) {
-    #restaurants-index .container .row .card {
+    #restaurants-index .container .row-card .card {
         width: calc(100% - 30px);
     }
 
     #restaurants-index {
         height: fit-content;
         padding: 15px;
-    }
-
-    #restaurants-index .ramen-r {
-        display: none;
-    }
-
-    #restaurants-index .plate-l {
-        display: none;
     }
 
     .container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
