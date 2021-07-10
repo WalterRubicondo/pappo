@@ -1326,6 +1326,9 @@ footer {
   font-size: 15px;
   color: lightgray;
 }
+.footer-container .footer-up .col25 ul li a:hover {
+  color: #fff;
+}
 .footer-container .footer-up .col25.creator ul li i {
   margin-right: 10px;
 }
@@ -2049,6 +2052,7 @@ section.restaurant-create {
   background-color: #fcf7ed;
   position: relative;
   overflow: hidden;
+  padding: 25px 0;
 }
 section.restaurant-create .container .row .col-md-12 h1 {
   text-align: center;
@@ -2059,7 +2063,6 @@ section.restaurant-create .container .row .col-md-12 h1 {
 section.restaurant-create .container .row.justify-content-center .col-md-10 form {
   background-color: #ceefe1;
   padding: 25px 80px;
-  margin-top: 50px;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }

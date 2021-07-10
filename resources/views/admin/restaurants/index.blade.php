@@ -7,6 +7,7 @@
 		<h1>i tuoi ristoranti</h1>
 	</div>
 		<div class="row-card">
+		@if ($restaurants)
 			@foreach ($restaurants as $restaurant)
 				<div class="card">
 					<div class="card-img">
@@ -25,6 +26,9 @@
 					</div>
 				</div>
 			@endforeach
+			@else
+			<h1>ciao</h1>
+		@endif
 		</div>
 		<div class="row flex add-rest">
 			<div class="btn btn-add-rest">

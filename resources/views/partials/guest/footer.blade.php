@@ -20,11 +20,11 @@
         <div class="col25 creator">
             <ul>
                 <li><h2>I CREATORI di PAPPO</h2></li>
-                <li><a href=""><i class="fas fa-brush"></i>Andrea Sabatini</a></li>
+                <li><a href="https://www.linkedin.com/in/ilsaba/" target="_blank"><i class="fas fa-brush"></i>Andrea Sabatini</a></li>
                 <li><a href=""><i class="fas fa-paint-roller"></i>Giuseppe Placida</a></li>
-                <li><a href=""><i class="fas fa-paint-brush"></i>Leonardo Bongianni</a></li>
-                <li><a href=""><i class="fas fa-palette"></i>Sonia Cerasaro</a></li>
-                <li><a href=""><i class="fas fa-drafting-compass"></i></i>Walter Rubicondo</a></li>
+                <li><a href="https://www.linkedin.com/in/l-bongianni/" target="_blank"><i class="fas fa-paint-brush"></i>Leonardo Bongianni</a></li>
+                <li><a href="https://www.linkedin.com/in/sonia-cerasaro/" target="_blank"><i class="fas fa-palette"></i>Sonia Cerasaro</a></li>
+                <li><a href="https://www.linkedin.com/in/walter-rubicondo-6821b8210/" target="_blank"><i class="fas fa-drafting-compass"></i></i>Walter Rubicondo</a></li>
             </ul>
         </div>
         <div class="col25">
